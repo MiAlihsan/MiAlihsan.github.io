@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- CSS BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+
+    <!-- CDNJS FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZsmtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="shortcut icon" href="img/log.png">
+
+    <style>
+        .coba {
+            padding-top: 100px;
+        }
+
+        .text {
+            text-align: justify;
+        }
+
+        .list {
+            list-style-type: square;
+            text-align: left;
+        }
+
+        @media screen and (max-width: 768px) {
+            .text {
+                text-align: center;
+            }
+
+            .list {
+                list-style-type: square;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav id="navbar">
+        <a href=""><img src="img/Logo 2.png" alt=""></a>
+        <ul id="menu">
+            <li>
+                <a href="index.html" class="cool-link">Home</a>
+            </li>
+            <li>
+                <a href="fasilitas.html" class="cool-link">Fasilitas</a>
+            </li>
+            <li>
+                <a href="ekskul.html" class="cool-link">Ekstrakulikuler</a>
+            </li>
+            <li>
+                <a href="prestasi.html" class="cool-link">Prestasi</a>
+            </li>
+            <li>
+                <a href="contact.html" class="cool-link">Contact</a>
+            </li>
+        </ul>
+        <div class="mobile-bar" onClick="toggleMobileMenu();">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+    <!-- AKHIR NAVBAR -->
+    <div class="container-fluid  text-center" id="first">
+        <div class="row mt-4">
+            <div class="col-12 d-flex flex-wrap gap-3">
+                <div class="col-12 col-md-5">
+                    <img src="/img/prestasi/png_20230605_232611_0000.png" alt="" class="w-100">
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="text">
+                        <h4>Perlombaan atau event yang diikuti :</h4>
+                        <ul class="list">
+                            <li>Third winner in the quarter finals phase on JUARA INDONESIA RAMADHAN INDOSIAR 2023</li>
+                            <li>Terbaik 1 lomba yel yel pada event LOMBA KREATIFITAS SENI PENGGALANG 2023</li>
+                            <li>2 Medali Emas dalam event PIALA KONI 2023</li>
+                            <li>1 Medali Emas UIC CUP Taman Mini Jakarta 2022</li>
+                            <li>Juara 2 Lomba Virtual Tilawah pada event PQM Fair 2023</li>
+                            <li>Juara 3 Lomba Virtual Adzan pada event PQM Fair 2023</li>
+                            <li>Juara I Putra "Kejuaran & Festival Pencak Silat Jakarta"</li>
+                            <li>Juara I Putri "Kejuaran & Festival Pencak Silat Jakarta"</li>
+                            <li>Juara I Putra "Kejuaraan Pencak Silat Se-DKI Jakarta "Piala Koni DKI Jakarta"</li>
+                            <li>Juara I Putri "Kejuaraan Pencak Silat Se-DKI Jakarta "Piala Koni DKI Jakarta"</li>
+                            <li>Juara I Putra "Kejuaran Pencak Silat Jakarta Open"</li>
+                            <li>Juara I Putri "Kejuaran Pencak Silat Jakarta Open"</li>
+                            <li>Juara III Lomba Pidato "Lomba Online Nasional Spesial Ramadhan"</li>
+                            <li>Juara I Fase Group dan Juara III Quarter Final "Juara Indonesia Ramadhan Indosiar"</li>
+                            <li>Juara II dan Juara III Tilawah PQM Fair</li>
+                            <li> Juara III Adzan PQM Fair </li>
+                            <li>Juara 2 Lomba Pidato Online Nasional Rumah Qur'an</li>
+                            <li>Juara I Yel-yel terbaik dan Juara I Pos Sandi terbaik "Pramuka Sanggar Remaja LKSG
+                                tingkat kota"</li>
+                            <li>3 Medali Emas, 2 Medali Perak, & 1 Medali Perunggu di kejuaraan “West Jakarta Champions
+                                II”</li>
+                            <li>3 Medali Emas dalam ajang “AL MUTAQIN OLIMPIADE SCHOOL”</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="poter mt-5">
+            <a href="#navbar" class="row-top text-center"><img src="/img/icons8-top-100.png" width="50" alt=""></a>
+            <div class="wrap_6">
+                <p> Yayasan Pendidikan Islam Al-Ihsan ( Madrasah Ibtidaiyah Al-Ihsan )</p>
+                <div class="icon_medsos">
+                    <a href="https://api.whatsapp.com/send?phone=++6289524137266&text=Assalamualaikum%20Admin"
+                        target="_blank"><i class="fa-brands fa-whatsapp fa-2xl"></i></a>
+
+                    <a href="https://www.instagram.com/mi.alihsan_kbs/?r=nametag&__coig_restricted=1" target="_blank"><i
+                            class="fa-brands fa-instagram fa-2xl"></i></a>
+
+                    <a href="https://www.facebook.com/mialihsan.kbs.3" target="_blank"><i
+                            class="fa-brands fa-facebook fa-2xl"></i></a>
+
+                    <a href="https://www.youtube.com/@MIALIHSAN" target="_blank"><i
+                            class="fa-brands fa-youtube fa-2xl"></i></a>
+
+                    <a href="https://api.whatsapp.com/send?phone=+6281280254566&text=Assalamualaikum%20Admin"
+                        target="_blank"><i class="fa-brands fa-whatsapp fa-2xl"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>Copyright &copy;Official Website. All Right Reserved</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <!-- SCRIPT BOOTSTRAP -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FASILITAS</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- SCRIPT BOOTSTRAP -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous">
+    </script>
+
+    <!-- CSS BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+
+    <!-- CDNJS FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="shortcut icon" href="img/log.png">
+
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav id="navbar">
+        <a href=""><img src="img/Logo 2.png" alt=""></a>
+        <ul id="menu">
+            <li>
+                <a href="index.html" class="cool-link">Home</a>
+            </li>
+            <li>
+                <a href="fasilitas.html" class="cool-link">Fasilitas</a>
+            </li>
+            <li>
+                <a href="ekskul.html" class="cool-link">Ekstrakulikuler</a>
+            </li>
+            <li>
+                <a href="prestasi.html" class="cool-link">Prestasi</a>
+            </li>
+            <li>
+                <a href="contact.html" class="cool-link">Contact</a>
+            </li>
+        </ul>
+        <div class="mobile-bar" onClick="toggleMobileMenu();">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+    <!-- AKHIR NAVBAR -->
+
+    <!-- MODAL IMAGE -->
+    <div class="containerImg" id="first">
+        <h1 class="heading">Fasilitas MI Al-IHSAN</h1>
+        <hr>
+        <div class="justify">
+            <select id="filter">
+            </select>
+        </div>
+        <div class="gallery">
+        </div>
+    </div>
+
+    <!-- The Modal-image -->
+    <div id="Modal-GI" class="modal-GI">
+        <span class="close-GI">&times;</span>
+        <div class="modal-body-GI">
+            <img class="modal-content-GI" id="img-GI">
+        </div>
+    </div>
+
+
+    <!-- UNTUK FOOTER -->
+    <footer>
+        <div class="poter mt-5">
+            <a href="#navbar" class="row-top text-center"><img src="/img/icons8-top-100.png" width="50" alt=""></a>
+            <div class="wrap_6">
+                <p> Yayasan Pendidikan Islam Al-Ihsan ( Madrasah Ibtidaiyah Al-Ihsan )</p>
+                <div class="icon_medsos">
+                    <a href="https://api.whatsapp.com/send?phone=++6289524137266&text=Assalamualaikum%20Admin"
+                        target="_blank"><i class="fa-brands fa-whatsapp fa-2xl"></i></a>
+
+                    <a href="https://www.instagram.com/mi.alihsan_kbs/?r=nametag&__coig_restricted=1" target="_blank"><i
+                            class="fa-brands fa-instagram fa-2xl"></i></a>
+
+                    <a href="https://www.facebook.com/mialihsan.kbs.3" target="_blank"><i
+                            class="fa-brands fa-facebook fa-2xl"></i></a>
+
+                    <a href="https://www.youtube.com/@MIALIHSAN" target="_blank"><i
+                            class="fa-brands fa-youtube fa-2xl"></i></a>
+
+                    <a href="https://api.whatsapp.com/send?phone=+6281280254566&text=Assalamualaikum%20Admin"
+                        target="_blank"><i class="fa-brands fa-whatsapp fa-2xl"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>Copyright &copy;Official Website. All Right Reserved</p>
+            </div>
+        </div>
+    </footer>
+    <!-- AKHIR FOOTER -->
+
+
+    <script src="script.js"></script>
+    <script>
+        class Gallery {
+            constructor(imgs) {
+                this.imgs = imgs;
+            }
+
+            // parse a string to a html element
+            parser(string) {
+                return document.createRange().createContextualFragment(string).querySelector("div");
+            }
+
+            buildGallery() {
+                // set gallery empty to be filled
+                document.querySelector(".gallery").innerHTML = "";
+
+                this.imgs.map((img) => {
+                    let div = `<div class='gallery-item'> \
+      <img class='gallery-image' src='${img.uri}'>\
+  </div>`;
+                    div = this.parser(div);
+
+                    // create opciones
+                    let opciones = `<div class='opciones'>\
+      <p id='eliminar'></p>\
+      <p id='ver'><i class='far fa-eye'></i></p>\
+  </div>`;
+                    opciones = this.parser(opciones);
+
+                    // add listeners
+                    opciones.querySelector("#eliminar").addEventListener("click", (e) => this.remove(e, img
+                        .id));
+                    opciones.querySelector("#ver").addEventListener("click", (e) => this.vewImage(e, img
+                        .uri));
+                    let itemGalery = div;
+                    itemGalery.appendChild(opciones);
+
+                    //append to gallery
+                    document.querySelector(".gallery").appendChild(itemGalery);
+                });
+            }
+
+            buildSelector() {
+                let select = document.querySelector("#filter");
+                select.innerHTML = "";
+                select.addEventListener("click", this.selectorChange.bind(this));
+
+                let selector = this.imgs.map((img) => {
+                    return img.category;
+                });
+
+                let keys = new Set(selector);
+                keys = [...keys];
+
+                let opcionAll = new Option("ALL", "all", false, false);
+                select.appendChild(opcionAll);
+
+                keys.forEach((id) => {
+                    let values = this.imgs.find((img) => img.category == id);
+                    let opcion = new Option(values.categoryName, values.category, false, false);
+                    select.appendChild(opcion);
+                });
+            }
+
+            filter(filter) {
+                // set gallery empty to be filled
+                document.querySelector(".gallery").innerHTML = "";
+
+                this.imgs.map((img) => {
+                    if (img.category == filter) {
+                        let div = `<div class='gallery-item'> \
+          <img class='gallery-image' src='${img.uri}'>\
+      </div>`;
+                        div = this.parser(div);
+
+                        // create opciones
+                        let opciones = `<div class='opciones'>\
+          <p id='eliminar'></p>\
+          <p id='ver'><i class='far fa-eye'></i></p>\
+      </div>`;
+                        opciones = this.parser(opciones);
+
+                        // add listeners
+                        opciones.querySelector("#eliminar").addEventListener("click", (e) => this.remove(e,
+                            img.id));
+                        opciones.querySelector("#ver").addEventListener("click", (e) => this.vewImage(e, img
+                            .uri));
+
+                        let itemGalery = div;
+                        itemGalery.appendChild(opciones);
+
+                        //append to gallery
+                        document.querySelector(".gallery").appendChild(itemGalery);
+                    }
+                });
+            }
+
+            async remove(e, id) {
+                e.preventDefault();
+
+                if (this.onbdelete == null) {
+                    let index = this.imgs.findIndex((img) => img.id == id);
+
+                    if (index != -1) {
+                        this.imgs.splice(index, 1);
+                        this.buildGallery();
+                        this.buildSelector();
+                    }
+                }
+
+                if (this.isFunction(this.onbdelete)) {
+                    if (await this.onbdelete()) {
+                        let index = this.imgs.findIndex((img) => img.id == id);
+                        console.log(index);
+
+                        if (index != -1) {
+                            this.imgs.splice(index, 1);
+                            console.table(this.imgs);
+                            this.buildGallery();
+                            this.buildSelector();
+                        }
+                    }
+                } else {
+                    console.error("before deleting is not a function; check that");
+                }
+            }
+
+            selectorChange(e) {
+                e.preventDefault();
+
+                let value = e.target.value;
+                if (value == "all") {
+                    this.buildGallery();
+                } else {
+                    this.filter(value);
+                }
+            }
+
+            vewImage(e, uri) {
+                e.preventDefault();
+                document.querySelector("#img-GI").src = uri;
+                document.querySelector("#Modal-GI").style.display = "block";
+
+                let span = document.getElementsByClassName("close-GI")[0];
+
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = () => (document.querySelector("#Modal-GI").style.display = "none");
+            }
+            // you have to return whether true or false
+            // if true go ahead to delete image
+            // if not, image is not going to be deleted
+            beforeDelete(funcion) {
+                this.onbdelete = funcion;
+            }
+
+            // check that the passed argument is a function
+            isFunction(functionToCheck) {
+                return functionToCheck && ({}.toString.call(functionToCheck) === "[object Function]" || {}.toString
+                    .call(functionToCheck) === "[object AsyncFunction]");
+            }
+        }
+
+        // now implement Gallery class
+        let imgs = [{
+                id: 1,
+                category: 1,
+                categoryName: "Laboratorium",
+                uri: "img/lab/1.png",
+            },
+            {
+                id: 2,
+                category: 1,
+                categoryName: "Laboratorium",
+                uri: "img/lab/2.png",
+            },
+            {
+                id: 3,
+                category: 1,
+                categoryName: "Laboratorium",
+                uri: "img/lab/3.png",
+            },
+            {
+                id: 4,
+                category: 1,
+                categoryName: "Laboratorium",
+                uri: "img/lab/4.png",
+            },
+            {
+                id: 5,
+                category: 1,
+                categoryName: "Laboratorium",
+                uri: "img/lab/5.png",
+            },
+            {
+                id: 6,
+                category: 2,
+                categoryName: "Ruang Guru",
+                uri: "img/guru/1.jpeg",
+            },
+            {
+                id: 7,
+                category: 2,
+                categoryName: "Ruang Guru",
+                uri: "img/guru/2.png",
+            },
+            {
+                id: 8,
+                category: 3,
+                categoryName: "Ruang Kepala Sekolah",
+                uri: "img/kepsek/1.png",
+            },
+            {
+                id: 9,
+                category: 3,
+                categoryName: "Ruang Kepala Sekolah",
+                uri: "img/kepsek/2.png",
+            },
+            {
+                id: 10,
+                category: 4,
+                categoryName: "Ruang Kelas",
+                uri: "img/kelas/1.png",
+            },
+            {
+                id: 11,
+                category: 4,
+                categoryName: "Ruang Kelas",
+                uri: "img/kelas/2.png",
+            },
+            {
+                id: 12,
+                category: 5,
+                categoryName: "Lapangan",
+                uri: "img/lapangan/1.jpeg",
+            },
+            {
+                id: 13,
+                category: 5,
+                categoryName: "Lapangan",
+                uri: "img/lapangan/2.jpeg",
+            },
+            {
+                id: 14,
+                category: 6,
+                categoryName: "UKS",
+                uri: "img/UKS.png",
+            },
+            {
+                id: 15,
+                category: 7,
+                categoryName: "Ruang Konseling",
+                uri: "img/BK.png",
+            },
+            {
+                id: 16,
+                category: 8,
+                categoryName: "Fasilitas Lainnya",
+                uri: "img/DLL.png",
+            }
+        ];
+
+        let gallery = new Gallery(imgs);
+        gallery.buildGallery();
+        gallery.buildSelector();
+
+        gallery.beforeDelete(async function () {
+            let willDelete = await swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this imaginary file!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            });
+
+            if (willDelete) {
+                swal("Poof! Your imaginary file has been deleted!", {
+                    icon: "success",
+                });
+                return true;
+            } else {
+                swal("Your imaginary file is safe!");
+                return false;
+            }
+        });
+    </script>
+</body>
+
+</html>

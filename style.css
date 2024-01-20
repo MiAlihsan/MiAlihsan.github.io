@@ -1,0 +1,649 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"); */
+*,
+html,
+body {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  font-size: 18px;
+  /* overflow-y: hidden; */
+  scroll-behavior: smooth;
+}
+/* NAVBAR */
+nav {
+  z-index: 9999;
+  width: 100%;
+  background-image: linear-gradient(to right, #7d280d, #ffb30a);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+nav .mobile-bar {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em 1em;
+  display: none;
+}
+
+@media (max-width: 750px) {
+  nav .mobile-bar {
+    display: flex;
+    text-align: center;
+  }
+}
+
+nav .mobile-bar span {
+  display: block;
+  height: 2px;
+  width: 20px;
+  margin: 2px;
+  background: #888;
+}
+
+nav .mobile-bar.active {
+  background: #f5f5f5;
+}
+
+nav .mobile-bar.active span {
+  background: #4c4b16;
+}
+
+nav .mobile-bar:hover {
+  background: #222;
+}
+
+nav .mobile-bar:hover span {
+  background: #444;
+}
+
+nav .mobile-bar:hover.active {
+  background: #222;
+}
+
+nav .mobile-bar:hover.active span {
+  background: white;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  transition: ease 1s all;
+}
+
+@media (max-width: 750px) {
+  nav ul {
+    text-align: center;
+    opacity: 0;
+    max-height: 0px;
+    overflow: hidden;
+    visibility: none;
+    display: flex;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    flex-direction: column;
+    background-color: #4c4b16;
+    margin-left: -100%;
+    z-index: 3;
+  }
+  nav ul.active {
+    opacity: 1;
+    max-height: 500px;
+    right: 0;
+    margin-left: 0%;
+    background-color: #4c4b16;
+  }
+
+  nav ul.active li {
+    display: block;
+  }
+
+  nav ul.active li a {
+    display: block;
+  }
+  nav ul li {
+    display: inline-block;
+  }
+
+  nav ul li a {
+    display: inline-block;
+    color: wheat;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .cool-link {
+    display: inline-block;
+    color: #bbb;
+    text-decoration: none;
+  }
+
+  .cool-link::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: wheat;
+    transition: width 0.3s ease-in-out;
+  }
+
+  .cool-link:hover::after {
+    width: 100%;
+  }
+
+  .cool-link:hover {
+    color: white;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  nav ul li {
+    display: inline-block;
+  }
+
+  nav ul li a {
+    display: inline-block;
+    color: #7d280d;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .cool-link::after {
+    content: "";
+    display: block;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 3px;
+    transform: scaleX(0);
+    background: wheat;
+    transition: transform 0.5s;
+  }
+
+  .cool-link:hover::after {
+    transform: scale(1);
+  }
+
+  .cool-link:hover {
+    color: #7d280d;
+  }
+}
+
+nav img {
+  width: 220px;
+  padding: 12px;
+}
+/* AKHIR NAVBAR */
+
+/* FIRST CONTENT */
+/* PARALLAX */
+.parallax {
+  width: 100%;
+  height: 90vh;
+}
+.intro {
+  background-image: url("img/sekolah.jpg");
+  background-size: cover;
+  z-index: -1;
+  background-position: center;
+  background-attachment: fixed;
+}
+#header h2 {
+  text-shadow: 2px 2px 8px #ff0000;
+}
+/* AKHIR PARALLAX */
+
+/* VIDEO YOUTUBE/PROFIL SEKOLAH */
+.youtube {
+  width: 100%;
+}
+.youtube iframe {
+  border-radius: 10px;
+}
+.wrap-1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+}
+.list-1 {
+  width: 500px;
+}
+.list-1 h2 {
+  color: #4c4b16;
+}
+/* AKHIR VIDEO YOUTUBE/PROFILE SEKOLAH */
+
+/* CONTENT KETIGA/LATAR BELAKANG */
+#sejarah {
+  background-image: linear-gradient(to right, #7d280d, #ffb30a);
+  padding-top: 40px;
+  text-align: justify;
+  color: #222;
+}
+.wrap h2 {
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+
+.wrap p {
+  text-indent: 40px;
+}
+
+.wrap {
+  width: 60%;
+  margin: auto;
+}
+/* AKHIR LATAR BELAKANG */
+
+/* ACCORDION/VISI MISI */
+.accordion-tabs {
+  margin: 20px;
+}
+.accordion-tabs .activate-tab {
+  position: absolute;
+  left: -10000px;
+}
+.accordion-tabs .tabs {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.accordion-tabs .tabs .tab {
+  display: inline-block;
+  padding: 10px;
+  vertical-align: top;
+  background-color: #ccc;
+  cursor: hand;
+  cursor: pointer;
+  border-left: 1px solid #fff;
+  flex-grow: 1;
+  border-radius: 10px;
+}
+.accordion-tabs .tabs .tab:hover {
+  background-color: #fff;
+}
+.accordion-tabs .tabs .tab-content {
+  background-color: #fff;
+  padding: 20px 20px 20px 10px;
+  min-height: 300px;
+  display: none;
+  width: 100%;
+  flex-basis: auto;
+}
+#tab-one:checked ~ .tabs #tab-one-label,
+#tab-two:checked ~ .tabs #tab-two-label,
+#tab-three:checked ~ .tabs #tab-three-label {
+  background-color: #fff;
+  cursor: default;
+  border-left: none;
+}
+#tab-one:checked ~ .tabs #tab-one-tab-content,
+#tab-two:checked ~ .tabs #tab-two-tab-content,
+#tab-three:checked ~ .tabs #tab-three-tab-content {
+  display: block;
+}
+@media (max-width: 500px) {
+  .tabs {
+    flex-direction: column;
+  }
+  .tabs #tab-one-label {
+    order: 1;
+  }
+  .tabs #tab-one-tab-content {
+    order: 2;
+  }
+  .tabs #tab-two-label {
+    order: 3;
+  }
+  .tabs #tab-two-tab-content {
+    order: 4;
+  }
+  #tab-one:checked ~ .tabs #tab-one-label,
+  #tab-two:checked ~ .tabs #tab-two-label,
+  #tab-three:checked ~ .tabs #tab-three-label {
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #ccc;
+  }
+}
+/* AKHIR VISI MISI/ACCORDION */
+
+/* SKILL SEKOLAH/CARD */
+.wrap-2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+.list-2 {
+  width: 30%;
+  display: flex;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 20px;
+  background-color: #7aa874;
+}
+.wrapper-2 i {
+  width: 80px;
+}
+
+/* RESPONSIVE SKILL SEKOLAH/CARD */
+@media screen and (max-width: 768px) {
+  .list-2 {
+    /* RESPONSIVE SKILL SEKOLAH */
+    width: 80%;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 540px) {
+  .wrap-1 {
+    /* RESPONSIVE YOUTUBE */
+    margin: auto;
+    width: 90%;
+  }
+  .youtube iframe {
+    /* RESPONSIVE YOUTUBE */
+    width: 100%;
+    height: 200px;
+  }
+}
+
+/* FOOTER */
+.row-top {
+  scroll-behavior: smooth;
+  z-index: 30;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+.poter {
+  margin-top: 100px;
+  background-color: #7aa874;
+  text-align: center;
+  color: white;
+  padding-top: 15px;
+}
+.wrap_6 p {
+  color: #4c4b16;
+  font-weight: bold;
+}
+.icon_medsos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.icon_medsos i {
+  transition: all 0.5s ease;
+  color: #4c4b16;
+}
+
+.icon_medsos i:hover {
+  color: #483838;
+}
+
+.copyright {
+  background-color: #4c4b16;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  align-items: center;
+}
+/* AKHIR FOOTER */
+
+/* FILE FASILITAS */
+/* MODAL IMAGE */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto+Slab&display=swap");
+
+:root {
+  --base: 14px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.containerImg {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
+  padding-top: 100px;
+}
+
+.heading {
+  font-family: "Roboto Slab", serif;
+  font-size: calc(var(--base) * 2.5);
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  color: #1a1a1a;
+  margin-top: 0;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gallery-item {
+  flex: 1 0 calc(var(--base) * 10);
+  margin: calc(var(--base) * 1);
+  box-shadow: calc(var(--base) * 0.3) calc(var(--base) * 0.4) calc(var(--base) * 0.4) rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery-image {
+  width: cover;
+  height: 110px;
+  object-fit: cover;
+  transition: transform 400ms ease-out;
+}
+
+.gallery-image:hover {
+  transform: scale(1.15);
+}
+
+.opciones {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.gallery-item:hover > .opciones > p {
+  opacity: 1;
+}
+
+.opciones p {
+  opacity: 0;
+  margin: 1%;
+  color: black;
+  font-size: calc(var(--base) * 1.25);
+  background-color: rgb(255, 255, 255);
+  transition: 1s ease-out;
+  cursor: pointer;
+  user-select: none;
+  width: calc(var(--base) * 2);
+  text-align: center;
+  transition: 0.5s ease-out;
+  padding: 10% 1%;
+}
+
+.opciones p:hover {
+  background-color: rgb(77, 77, 255);
+  color: #fff;
+}
+#filter {
+  margin-bottom: calc(var(--base) * 1);
+  filter: 8px;
+  border: 1px solid rgb(119, 119, 119);
+  border-radius: 3px;
+  padding: 0.4% 0.5%;
+  font-family: "Montserrat", sans-serif;
+}
+
+@media screen and (min-width: 0px) and (max-width: 768px) {
+  .opciones p {
+    opacity: 1;
+  }
+}
+
+@supports (display: grid) {
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(calc(var(--base) * 10), calc(var(--base) * 10)));
+    grid-gap: calc(var(--base) * 0.8);
+  }
+
+  .gallery,
+  .gallery-item {
+    margin: 0;
+  }
+}
+
+/* The Modal (background) */
+.modal-GI {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.97);
+  /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content-GI {
+  margin: auto;
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+}
+
+.modal-content-GI {
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {
+    -webkit-transform: scale(0);
+  }
+
+  to {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+/* The Close Button */
+.close-GI {
+  position: absolute;
+  top: 10px;
+  right: 5%;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  padding-top: 40px;
+}
+
+.close-GI:hover,
+.close-GI:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-body-GI {
+  padding-top: 80px;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media screen and (max-width: 550px) {
+  .justify {
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .modal-content-GI {
+    width: 100%;
+    height: auto;
+  }
+}
+@media screen and (max-width: 850px) {
+  .close-GI {
+    right: 2%;
+  }
+}
+
+.heading {
+  color: #222;
+}
+hr {
+  border: 3px solid black;
+}
+/* AKHIR MODAL */
+/* AKHIR FILE FASILITAS */
+
+/* FILE EKSKUL */
+.containerCard {
+  padding-top: 40px;
+  margin-bottom: 50px;
+}
+.card {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  margin: auto;
+}
+.title {
+  margin-left: 20px;
+}
+
+/* FILE CONTACT */
+.idk-icon {
+  gap: 10px;
+}
+
+/* FILE PRESTASI */
